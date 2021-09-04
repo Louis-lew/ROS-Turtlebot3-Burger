@@ -1,0 +1,73 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  info [
+    "Simple Thymio II simulation controlled by a ROS node written in Python."
+  ]
+  title "ROS Python"
+  basicTimeStep 20
+  contactProperties [
+    ContactProperties {
+      material2 "thymio body"
+      coulombFriction [
+        0.7
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.2785804190679467 0.43852908975364424 0.854450225321386 2.1898471385672837
+  position 1.2538065566199958 0.6408083295842038 1.0657370966549446
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+CircleArena {
+  rotation 1 0 0 1.5707963267948966
+  wallThickness 0.05
+  wallHeight 0.3
+}
+TurtleBot3Burger {
+  hidden position_0_0 -466.589900689947
+  hidden position_0_1 489.2289427772926
+  hidden position_0_2 86.42840989956602
+  hidden position_2_0 32761.631999968176
+  hidden position_2_1 64707.43199993945
+  hidden rotation_3 -0.7541555995698277 0.4643531778561598 0.4643548835237543 1.8492854016625198
+  hidden translation_4 -0.09194676636932587 -0.010000000000000023 0.002212387896051014
+  hidden rotation_4 0.017011701832837074 0.7070031576516002 0.7070057546239757 3.1756126507850473
+  hidden rotation_9 0.5891673312277323 -0.5891694953641545 0.5529567447335632 2.131374904831408
+  hidden rotation_10 -0.6726629984965962 -0.6726636487249412 -0.3082987287317567 2.5434798534407213
+  hidden translation_11 6.837677817148935e-06 0.00399810112131647 0.0809923531820259
+  hidden rotation_11 0.3076470884081271 -0.9490526979363463 -0.06820737154988639 3.0680655136270425
+  rotation 1 0 0 1.5708
+  controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+    RobotisLds01 {
+    }
+  ]
+}
+Solid {
+  translation -0.5 0.185 0.024936
+  rotation 1 3.8954831827561525e-17 9.01134668367101e-17 1.5707963815996986
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.501961 0.25098
+        roughness 0.4
+        metalness 0
+      }
+      geometry DEF CYLINDER1 Cylinder {
+        height 0.4
+        radius 0.08
+        subdivision 24
+      }
+      isPickable FALSE
+    }
+  ]
+  name "obstacle"
+  model "obstacle"
+  boundingObject USE CYLINDER1
+}
