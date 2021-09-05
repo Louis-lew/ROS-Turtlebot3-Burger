@@ -1,0 +1,46 @@
+#Create Package
+mkdir ~/webot_ws02/src -p
+cd webot_ws02/src
+catkin_create_pkg mywebots std_msgs rospy roscpp
+cd ..
+#include webots_ros-4.0.1
+catkin_make
+
+----------------------------------------------------
+#Initiate Enviroment
+cd ~/webot_ws02/
+source /opt/ros/noetic/setup.bash
+export TURTLEBOT3_MODEL=burger
+catkin_make
+source devel/setup.bash
+roscd mywebots
+export WEBOTS_HOME=/usr/local/webots
+clear
+
+----------------------------------------------------
+#For Goal Navigation with saved map
+roslaunch mywebots webots_navigation.launch
+
+----------------------------------------------------
+#For Autonomous Navigation with Obstacle Avoidance*
+roslaunch mywebots webots_ros_avoidance.launch
+
+----------------------------------------------------
+#Launch Webots with extern controller and teleop
+roslaunch mywebots webots_ros_python.launch
+
+----------------------------------------------------
+#For teleop only
+rosrun mywebots turtlebot3_teleop_key.py
+
+----------------------------------------------------
+#For Gmapping
+rosrun gmapping slam_gmapping scan:=/scan _xmax:=30 _xmax:=30 _xmin:=-30 _ymax:=30 _ymin:=-30 _delta:=0.2
+
+export TURTLEBOT3_MODEL=burger
+roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
+
+----------------------------------------------------
+#Empty RVIZ
+rosrun rviz rviz
+
