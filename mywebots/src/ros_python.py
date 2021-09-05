@@ -247,12 +247,14 @@ rospy.loginfo('Publishing the topic "odom".')
 odom_broadcaster = tf.TransformBroadcaster()
 
 pub_lidar = rospy.Publisher('scan', LaserScan, queue_size=10)
-rospy.loginfo('Publishing the topic "sensor"')
+rospy.loginfo('Publishing the topic "scan"')
 rospy.loginfo('Running the control loop')
 
 handle_turtle_pose()
 sendodom(True)
 
+
+r = rospy.Rate(1/TIME_STEP)
 while robot.step(TIME_STEP) != -1 and not rospy.is_shutdown():
     handle_turtle_pose()
     sendodom()
@@ -267,3 +269,4 @@ while robot.step(TIME_STEP) != -1 and not rospy.is_shutdown():
         message = ''
     # left.setVelocity(velocity)
     # right.setVelocity(velocity)
+    r.sleep()

@@ -128,7 +128,6 @@ if __name__=="__main__":
     if os.name != 'nt':
         settings = termios.tcgetattr(sys.stdin)
 
-    # node(mywebots_teleop/refer launch file), Pub(/cmd_vel, twist type)
     rospy.init_node('turtlebot3_teleop')
     pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
 
