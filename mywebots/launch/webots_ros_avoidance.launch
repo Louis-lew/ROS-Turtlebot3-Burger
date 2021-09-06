@@ -9,6 +9,8 @@
   </include>
 
   <include file="$(find ros_autonomous_slam)/launch/autonomous_explorer.launch">
+  <arg name="explorer" value="RRT"/>
+  <arg name="slam_methods" value="gmapping"/>
   </include>
 
   <arg name="auto_close" default="false" doc="Startup mode"/>

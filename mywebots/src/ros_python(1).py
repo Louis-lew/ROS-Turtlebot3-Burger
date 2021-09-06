@@ -183,7 +183,7 @@ def sendodom(init=False):
 
     #imu_quat = imu.getQuaternion()
     imu_rpy = imu.getRollPitchYaw()
-    odom_quat = quaternion_from_euler(0, 0, imu_rpy[2])
+    odom_quat = quaternion_from_euler(0, 0, imu_rpy[2]+math.pi)
     #odom_quat = quaternion_from_euler(0, 0, TH)
 
     #publish transform over tf
