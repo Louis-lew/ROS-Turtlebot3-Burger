@@ -12,6 +12,6 @@
   <env name="LD_LIBRARY_PATH" value="$(env LD_LIBRARY_PATH):$(env WEBOTS_HOME)/lib/controller"/>
   <env name="PYTHONPATH" value="$(env PYTHONPATH):$(env WEBOTS_HOME)/lib/controller/python27" unless="$(eval '1' if env('ROS_DISTRO') == 'noetic' else '0')" />
   <env name="PYTHONPATH" value="$(env PYTHONPATH):$(env WEBOTS_HOME)/lib/controller/python38" if="$(eval '1' if env('ROS_DISTRO') == 'noetic' else '0')" />
-  <node name="mywebots_python" pkg="mywebots" type="ros_python(1).py" required="$(arg auto_close)"/>
+  <node name="mywebots_python" pkg="mywebots" type="ros_python.py" required="$(arg auto_close)"/>
   <node name="mywebots_teleop" pkg="mywebots" type="turtlebot3_teleop_key.py" required="$(arg auto_close)"/>
 </launch>

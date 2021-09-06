@@ -6,7 +6,7 @@
   <arg name="open_rviz" default="true"/>
 
   <!-- Webots -->
-  <include file="$(find mywebots)/launch/webots_ros_python.launch">
+  <include file="$(find mywebots)/launch/webots_ros_python_.launch">
   </include>
 
   <!-- Turtlebot3 -->
